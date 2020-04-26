@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SlotMachineController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Pictures/UIBackground.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="560.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money left:" />
+      <Button fx:id="pullButton" layoutX="601.0" layoutY="365.0" mnemonicParsing="false" onAction="#pull" text="Pull" />
+      <Text layoutX="103.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slot 1" />
+      <Text layoutX="203.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slot 2" />
+      <Text layoutX="301.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slot 3" />
+      <Text fx:id="moneyLeft" layoutX="645.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(money)" />
+      <Button fx:id="quitButton" layoutX="655.0" layoutY="517.0" mnemonicParsing="false" text="Quit" />
+      <Text fx:id="resultLeft" layoutX="107.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="resultMiddle" layoutX="207.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="resultRight" layoutX="305.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="winningText" layoutX="165.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="59.572265625" />
+      <HBox layoutX="71.0" layoutY="99.0" prefHeight="150.0" prefWidth="520.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox layoutX="523.0" layoutY="300.0" prefHeight="25.0" prefWidth="193.0" spacing="50.0">
+         <children>
+            <Button fx:id="wager1" mnemonicParsing="false" onAction="#wager1" text="\$1" />
+            <Button fx:id="wager5" mnemonicParsing="false" onAction="#wager5" text="\$5" />
+            <Button fx:id="wager15" mnemonicParsing="false" onAction="#wager15" text="\$15" />
+         </children>
+      </HBox>
+      <Text layoutX="571.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select your wager:" />
+      <Text fx:id="warningText" layoutX="456.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+   </children>
+</AnchorPane>
