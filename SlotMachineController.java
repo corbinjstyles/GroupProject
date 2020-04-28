@@ -1,11 +1,16 @@
+// Author: Aaron Brown, pvt707
 package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.beans.EventHandler;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -14,7 +19,7 @@ import java.util.Random;
 public class SlotMachineController {
 	static boolean bCanPull = false;
 	static boolean bHasPulled = false;
-	static int money = 15;
+	static int money = 999999;            //EDIT THIS OUT
 	static int wagerAmnt = 0;
     @FXML
     private Button wager1;	// Wager 1 buck (or coin)
@@ -51,6 +56,17 @@ public class SlotMachineController {
     
     @FXML
     private Text warningText;
+    
+    @FXML
+    private ImageView imgSlot1;
+
+    @FXML
+    private ImageView imgSlot2;
+    
+    @FXML
+    private ImageView imgSlot3;
+
+    
     
     
     
@@ -147,7 +163,7 @@ public class SlotMachineController {
     
     
     
-    public void pull() 
+    public void pull() throws FileNotFoundException 
     {
     	// We get bCanPull as true once the user has wagered some amount of coins/money
     	if(bCanPull == true)
@@ -165,7 +181,7 @@ public class SlotMachineController {
     
     
     // This is the spin function where the value for each slot is assigned randomly
-    public void spin() 
+    public void spin() throws FileNotFoundException 
     {
     	// Used for deciding what the slot result will be
     	Random random = new Random();
@@ -190,11 +206,11 @@ public class SlotMachineController {
     	
     	
     	// This sets the 'slots' text equal to the matching value in the hashmap
-    	resultLeft.setText(iconVal.get(spinOutcome));
+    	/*resultLeft.setText(iconVal.get(spinOutcome));
     	resultMiddle.setText(iconVal.get(spinOutcome2));
-    	resultRight.setText(iconVal.get(spinOutcome3));
+    	resultRight.setText(iconVal.get(spinOutcome3));*/
     	
-    	
+    	setSlots(spinOutcome, spinOutcome2, spinOutcome3);
     	
     	// Calculate if the user wins, and sets the reward equal to what is returned from calculateReward
     	int reward = calculateReward(spinOutcome, spinOutcome2, spinOutcome3);
@@ -255,4 +271,174 @@ public class SlotMachineController {
     	
     }
      
+    
+    // This will be used to set the slot images
+    public void setSlots(int slot1, int slot2, int slot3) throws FileNotFoundException
+    {
+    	// imgSlot1  imgSlot2   imgSlot3
+    	
+    	/*	Water melon = 0
+		Bell 	    = 1
+		7 Icon      = 2
+		Pear        = 3
+		Cherry      = 4
+		Pineapple   = 5
+		Grape       = 6
+		Orange      = 7
+		Bar			= 8   */ 
+    	
+    	// Yes I know this is really dog shit programming work, but I'm trying to get it working
+    	// before I try to optimize its usage.
+    	
+    	
+    	switch(slot1) {
+    		case 0:
+    			FileInputStream input = new FileInputStream("src/resources/watermelon.png");
+    	    	Image image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 1:
+    			input = new FileInputStream("src/resources/bell.png");
+    			image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 2:
+    			input = new FileInputStream("src/resources/7 icon.png");
+    	    	image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 3:
+    			input = new FileInputStream("src/resources/pear.png");
+    	    	image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 4:
+    			input = new FileInputStream("src/resources/cherry.png");
+    	    	image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 5:
+    			input = new FileInputStream("src/resources/pineapple.png");
+    	    	image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 6:
+    			input = new FileInputStream("src/resources/grape.png");
+    	    	image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 7:
+    			input = new FileInputStream("src/resources/orange.png");
+    	    	image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    		case 8:
+    			input = new FileInputStream("src/resources/bar.png");
+    	    	image = new Image(input);
+    			imgSlot1.setImage(image);
+    			break;
+    	}
+    	
+    	
+    	switch(slot2) {
+			case 0:
+				FileInputStream input = new FileInputStream("src/resources/watermelon.png");
+				Image image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 1:
+				input = new FileInputStream("src/resources/bell.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 2:
+				input = new FileInputStream("src/resources/7 icon.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 3:
+				input = new FileInputStream("src/resources/pear.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 4:
+				input = new FileInputStream("src/resources/cherry.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 5:
+				input = new FileInputStream("src/resources/pineapple.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 6:
+				input = new FileInputStream("src/resources/grape.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 7:
+				input = new FileInputStream("src/resources/orange.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+			case 8:
+				input = new FileInputStream("src/resources/bar.png");
+				image = new Image(input);
+				imgSlot2.setImage(image);
+				break;
+    	}
+    	
+    	
+    	switch(slot3) {
+			case 0:
+				FileInputStream input = new FileInputStream("src/resources/watermelon.png");
+				Image image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 1:
+				input = new FileInputStream("src/resources/bell.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 2:
+				input = new FileInputStream("src/resources/7 icon.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 3:
+				input = new FileInputStream("src/resources/pear.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 4:
+				input = new FileInputStream("src/resources/cherry.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 5:
+				input = new FileInputStream("src/resources/pineapple.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 6:
+				input = new FileInputStream("src/resources/grape.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 7:
+				input = new FileInputStream("src/resources/orange.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+			case 8:
+				input = new FileInputStream("src/resources/bar.png");
+				image = new Image(input);
+				imgSlot3.setImage(image);
+				break;
+    	}
+    	
+    	
+    }
+    
+    
 }
