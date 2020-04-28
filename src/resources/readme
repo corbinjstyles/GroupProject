@@ -1,0 +1,5 @@
+This is the resource folder for usage in the slot machine game.
+This folder is necessary for the proper loading of images in the UI and slots itself.
+
+Depending on how you compile the program you may have to adjust the directory values of the images in the
+SlotMachine.java file.
