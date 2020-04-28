@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="vb" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KenoController">
+   <children>
+      <ImageView fitHeight="580.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../casino.jpg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="107.0" prefHeight="243.0" prefWidth="431.0" spacing="5.0" style="-fx-background-color: #E32812;">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="400.0" spacing="15.0">
+               <children>
+                  <CheckBox fx:id="cb1" mnemonicParsing="false" onAction="#checkEvent" text="1" />
+                  <CheckBox fx:id="cb2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#checkEvent" text="2" />
+                  <CheckBox fx:id="cb3" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="3" />
+                  <CheckBox fx:id="cb4" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="4" />
+                  <CheckBox fx:id="cb5" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="5" />
+                  <CheckBox fx:id="cb6" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="6" />
+                  <CheckBox fx:id="cb7" layoutX="63.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="7" />
+                  <CheckBox fx:id="cb8" layoutX="111.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="8" />
+                  <CheckBox fx:id="cb9" layoutX="351.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="9" />
+                  <CheckBox fx:id="cb10" layoutX="359.0" layoutY="15.0" mnemonicParsing="false" onAction="#checkEvent" text="10" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="400.0" spacing="12.0">
+               <children>
+                  <CheckBox fx:id="cb11" mnemonicParsing="false" text="11" />
+                  <CheckBox fx:id="cb12" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="12" />
+                  <CheckBox fx:id="cb13" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="13" />
+                  <CheckBox fx:id="cb14" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="14" />
+                  <CheckBox fx:id="cb15" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="15" />
+                  <CheckBox fx:id="cb16" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="16" />
+                  <CheckBox fx:id="cb17" layoutX="63.0" layoutY="15.0" mnemonicParsing="false" text="17" />
+                  <CheckBox fx:id="cb18" layoutX="111.0" layoutY="15.0" mnemonicParsing="false" text="18" />
+                  <CheckBox fx:id="cb19" layoutX="351.0" layoutY="15.0" mnemonicParsing="false" text="19" />
+                  <CheckBox fx:id="cb20" layoutX="359.0" layoutY="15.0" mnemonicParsing="false" text="20" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="400.0" spacing="12.0">
+               <children>
+                  <CheckBox fx:id="cb21" mnemonicParsing="false" text="21" />
+                  <CheckBox fx:id="cb22" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="22" />
+                  <CheckBox fx:id="cb23" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="23" />
+                  <CheckBox fx:id="cb24" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="24" />
+                  <CheckBox fx:id="cb25" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="25" />
+                  <CheckBox fx:id="cb26" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="26" />
+                  <CheckBox fx:id="cb27" layoutX="63.0" layoutY="15.0" mnemonicParsing="false" text="27" />
+                  <CheckBox fx:id="cb28" layoutX="111.0" layoutY="15.0" mnemonicParsing="false" text="28" />
+                  <CheckBox fx:id="cb29" layoutX="351.0" layoutY="15.0" mnemonicParsing="false" text="29" />
+                  <CheckBox fx:id="cb30" layoutX="359.0" layoutY="15.0" mnemonicParsing="false" text="30" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="400.0" spacing="12.0">
+               <children>
+                  <CheckBox fx:id="cb31" mnemonicParsing="false" text="31" />
+                  <CheckBox fx:id="cb32" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="32" />
+                  <CheckBox fx:id="cb33" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="33" />
+                  <CheckBox fx:id="cb34" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="34" />
+                  <CheckBox fx:id="cb35" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="35" />
+                  <CheckBox fx:id="cb36" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="36" />
+                  <CheckBox fx:id="cb37" layoutX="63.0" layoutY="15.0" mnemonicParsing="false" text="37" />
+                  <CheckBox fx:id="cb38" layoutX="111.0" layoutY="15.0" mnemonicParsing="false" text="38" />
+                  <CheckBox fx:id="cb39" layoutX="351.0" layoutY="15.0" mnemonicParsing="false" text="39" />
+                  <CheckBox fx:id="cb40" layoutX="359.0" layoutY="15.0" mnemonicParsing="false" text="40" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="23.0" />
+         </padding>
+      </VBox>
+      <Label fx:id="lblcount" layoutX="384.0" layoutY="341.0" prefHeight="40.0" prefWidth="200.0" />
+      <Label fx:id="lblist1" layoutX="540.0" layoutY="-11.0" prefHeight="180.0" prefWidth="119.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </Label>
+      <Label layoutX="552.0" layoutY="35.0" text="Hits" underline="true" />
+      <Label layoutX="585.0" layoutY="35.0" text="Pays" underline="true" />
+      <Label layoutX="552.0" layoutY="21.0" text="PAYOUTS">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="play" layoutX="466.0" layoutY="296.0" mnemonicParsing="false" onAction="#playGame" text="Play" />
+      <VBox layoutX="164.0" layoutY="250.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <TextField fx:id="tf1" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf2" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf3" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf4" layoutX="10.0" layoutY="54.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf5" layoutX="10.0" layoutY="76.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf6" layoutX="10.0" layoutY="98.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf7" layoutX="10.0" layoutY="120.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf8" layoutX="10.0" layoutY="142.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf9" layoutX="10.0" layoutY="164.0" prefHeight="20.0" prefWidth="20.0" />
+            <TextField fx:id="tf10" layoutX="10.0" layoutY="186.0" prefHeight="20.0" prefWidth="20.0" />
+         </children>
+      </VBox>
+      <Label fx:id="lblist" layoutX="290.0" layoutY="261.0" prefHeight="200.0" prefWidth="65.0">
+         <padding>
+            <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
+         </padding>
+      </Label>
+      <Label layoutX="42.0" layoutY="210.0" text="\$100" />
+      <Label layoutX="15.0" layoutY="185.0" text="Your Money:" textFill="#070707">
+         <font>
+            <Font name="Bodoni MT" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbmatches" layoutX="604.0" layoutY="300.0" text="Matches: " textFill="#0a0a0a">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
