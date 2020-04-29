@@ -8,16 +8,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MainController {
 
     @FXML
+    private ImageView vegasBackground;
+	
+    @FXML
     private AnchorPane mainScreen;
 
     @FXML
     private Button playButton;
+    
+    @FXML
+    private TextField amount;
+    
+    @FXML
+    private Text message;
 
     @FXML
     void playClick(ActionEvent event) throws IOException {

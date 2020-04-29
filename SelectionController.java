@@ -1,5 +1,7 @@
 package application;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -8,16 +10,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SelectionController {
+
+    @FXML
+    private ImageView slotsImg;
+
+    @FXML
+    private ImageView rouletteImg;
+
+    @FXML
+    private ImageView kenoImg;
 
     @FXML
     private AnchorPane selectionScreen;
 
     @FXML
     private Button back;
+    
+    @FXML
+    private Text amount;
+    
+    @FXML
+    private ImageView casinoBackground;
 
     @FXML
     void backToTitleScreen(ActionEvent event) throws IOException {
@@ -30,8 +50,13 @@ public class SelectionController {
     }
 
     @FXML
-    void kenoClick(ActionEvent event) {
-
+    void kenoClick(ActionEvent event) throws IOException {
+    	System.out.println("You clicked slot");
+    	selectionScreen = FXMLLoader.load(getClass().getResource("Keno.fxml"));// pane you are GOING TO
+        Scene scene = new Scene(selectionScreen);// pane you are GOING TO show
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();// pane you are ON
+        window.setScene(scene);
+        window.show();
     }
 
     @FXML
@@ -48,5 +73,12 @@ public class SelectionController {
         window.setScene(scene);
         window.show();
     }
+    
+    /*
+    void showAmount(String a){
+    	String am = a;
+    	amount.setText(am);  
+    }
+    */
 
 }

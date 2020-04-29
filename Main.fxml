@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="567.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -51,14 +55,23 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane fx:id="mainScreen" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="mainScreen" maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="598.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Button fx:id="playButton" layoutX="294.0" layoutY="281.0" mnemonicParsing="false" onAction="#playClick" text="PLAY" />
+            <ImageView fx:id="vegasBackground" fitHeight="400.0" fitWidth="598.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/vegassign.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="playButton" layoutX="280.0" layoutY="341.0" mnemonicParsing="false" onAction="#playClick" text="PLAY" />
+            <TextField fx:id="amount" layoutX="227.0" layoutY="288.0" />
+            <Text fx:id="message" layoutX="241.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fafbfc" height="17.0" layoutX="223.0" layoutY="255.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Text fill="#110000" layoutX="227.0" layoutY="268.0" stroke="#151414" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter how much money you're bringing:" wrappingWidth="212.197265625" />
+            <Text fill="#fcf9f9" layoutX="71.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Vegas Simulator!" wrappingWidth="459.4269256591797">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
       </children>
     </AnchorPane>
   </children>
