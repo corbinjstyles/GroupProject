@@ -2,25 +2,34 @@
 package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.beans.EventHandler;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
+
+import application.controller.UserController;
 
 
 
 public class SlotMachineController {
 	static boolean bCanPull = false;
 	static boolean bHasPulled = false;
-	static int money = 999999;            //EDIT THIS OUT
+	static int money = 150;            //EDIT THIS OUT
 	static int wagerAmnt = 0;
+	static int winAmnt = 0;
     @FXML
     private Button wager1;	// Wager 1 buck (or coin)
 
@@ -66,8 +75,14 @@ public class SlotMachineController {
     @FXML
     private ImageView imgSlot3;
 
+    @FXML
+    private TextArea custWagerTextArea;
     
+    @FXML
+    private Button custWagerButton;
     
+    @FXML
+    private Text earningsLosses;
     
     
     // Potential Slot Icons
@@ -96,11 +111,11 @@ public class SlotMachineController {
     
     
     // To Do:
-    //   Improve the UI
-    //   Instead of showing the spin result on text, show it via image
-    //   Allow the user to set their own wager
-    //   Depending on the spin outcome, display that given image in the 'slot'	
-    //   Consider Bidimaps instead of using typical hashmaps    																			
+    //   Show earnings/losses as well as total money
+    //   Make the quit screen go back to selection.fxml
+    //  
+    //  
+    //    																			
     																			
     
     // We call this function whenever the user presses wager1, wager5, or wager15 buttons
@@ -110,6 +125,7 @@ public class SlotMachineController {
     // Each corresponding wager'x' function will decrement user's money by 'x' and allow the user to pull the lever (play the game)
     public void wager1()
     {
+    	moneyLeft.setText("$" + money);
     	if(money == 0)
     	{
     		bCanPull = false;
@@ -127,6 +143,7 @@ public class SlotMachineController {
     
     public void wager5()
     {
+    	moneyLeft.setText("$" + money);
     	if(money <= 4)
     	{
     		bCanPull = false;
@@ -144,6 +161,7 @@ public class SlotMachineController {
     
     public void wager15()
     {
+    	moneyLeft.setText("$" + money);
     	if(money < 15)
     	{
     		bCanPull = false;
@@ -159,6 +177,24 @@ public class SlotMachineController {
     	}
     }
     
+    public void wagerCustom()
+    {
+    	moneyLeft.setText("$" + money);
+    	int customWager = Integer.parseInt(custWagerTextArea.getText());
+    	if(money < customWager)
+    	{
+    		bCanPull = false;
+    		warningText.setText("Warning you do not have enough money for your custom wager");
+    	}
+    	else if(bHasPulled == false)
+    	{
+    		money -= customWager;
+    		moneyLeft.setText("$" +money);
+    		bCanPull = true;
+    		bHasPulled = true;
+    		wagerAmnt = customWager;
+    	}
+    }
     
     
     
@@ -218,6 +254,7 @@ public class SlotMachineController {
     	
     	// Sets winning text to how much money you have won.
     	winningText.setText("Winnings: $" + reward);
+    	earningsLosses.setText("" +winAmnt);
     	
     	// reward is added to the users current money
     	money += reward;
@@ -240,29 +277,37 @@ public class SlotMachineController {
     	
     	
     	// Loser, no matches at all
-    	if(left != middle && middle != right && left != right)
+    	if(left != middle && middle != right && left != right) {
+    		winAmnt -= wagerAmnt;
     		return reward += 0;
-    	else if((left == middle && left != right) || ((left == right) && (left != middle)) || ((middle == right) && (middle != left)))
+    	}
+    	else if((left == middle && left != right) || ((left == right) && (left != middle)) || ((middle == right) && (middle != left))) {
+    		winAmnt += reward + (2 * wagerAmnt);
     		return reward += (2 * wagerAmnt);
+    	}
     	
     	// Jackpot, triple 7's
     	if(left == 2 && middle == 2 && right == 2) {
+    		winAmnt += reward + ((7 * wagerAmnt) + 77);
     		return reward += ((7 * wagerAmnt) + 77);    		
     	}
     	
     	// Bar reward, triple bar's
     	if(left == 8 && middle == 8 && right == 8) {
+    		winAmnt += reward + ((3 * wagerAmnt) + 45);
     		return reward += ((3 * wagerAmnt) + 45);
     	}
     	
     	// Bell reward, triple bells
     	if(left == 1 && middle == 1 && right == 1)
     	{
+    		winAmnt += reward + ((3 * wagerAmnt) + 15);
     		return reward += ((3 * wagerAmnt) + 15);
     	}
     	
     	// This is for any set of triple that wasn't already caught above.
     	if(left == middle && left == right) {
+    		winAmnt += reward + (3 * wagerAmnt);
     		return reward += (3 * wagerAmnt);
     	}
     	
@@ -437,6 +482,20 @@ public class SlotMachineController {
 				break;
     	}
     	
+    	
+    }
+    
+    public void changeScreenButtonPushedSelection(ActionEvent event) throws IOException
+    {
+    	
+    	
+    	// The actual screen changing methods
+    	Parent userView = FXMLLoader.load(getClass().getResource("Selection.fxml"));
+    	Scene userViewScene = new Scene(userView);
+    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(userViewScene);
+    	
+    	window.show();
     	
     }
     

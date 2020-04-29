@@ -11,17 +11,17 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Pictures/currentUI.PNG" />
+            <Image url="@../resources/currentUI.PNG" />
          </image>
       </ImageView>
       <Text layoutX="589.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money left:" />
-      <Button fx:id="pullButton" layoutX="553.0" layoutY="131.0" mnemonicParsing="false" onAction="#pull" text="Pull" />
-      <Text fx:id="moneyLeft" layoutX="672.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(money)" />
-      <Button fx:id="quitButton" layoutX="655.0" layoutY="517.0" mnemonicParsing="false" text="Quit" />
+      <Button fx:id="pullButton" layoutX="553.0" layoutY="128.0" mnemonicParsing="false" onAction="#pull" text="Pull" />
+      <Text fx:id="moneyLeft" layoutX="672.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="quitButton" layoutX="655.0" layoutY="517.0" mnemonicParsing="false" onAction="#changeScreenButtonPushedSelection" text="Quit" />
       <Text fx:id="resultLeft" layoutX="107.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="resultMiddle" layoutX="207.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="resultRight" layoutX="305.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="winningText" layoutX="268.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="59.572265625" />
+      <Text fx:id="winningText" layoutX="260.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="113.708984375" />
       <HBox layoutX="94.0" layoutY="183.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="408.0" spacing="10.0">
          <children>
             <ImageView fx:id="imgSlot1" fitHeight="132.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true" />
@@ -37,6 +37,11 @@
          </children>
       </HBox>
       <Text layoutX="128.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select your wager:" />
-      <Text fx:id="warningText" layoutX="456.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="warningText" layoutX="611.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="135.0" />
+      <TextArea fx:id="custWagerTextArea" layoutX="199.0" layoutY="504.0" prefHeight="25.0" prefWidth="200.0" />
+      <Text layoutX="135.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custom Wager:" />
+      <Button fx:id="custWagerButton" layoutX="400.0" layoutY="505.0" mnemonicParsing="false" onAction="#wagerCustom" prefHeight="25.0" prefWidth="36.0" text="Bet" />
+      <Text layoutX="564.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Earnings/Losses:" />
+      <Text fx:id="earningsLosses" layoutX="672.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>
