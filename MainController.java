@@ -24,12 +24,6 @@ public class MainController {
 
     @FXML
     private Button playButton;
-    
-    @FXML
-    private TextField amount;
-    
-    @FXML
-    private Text message;
 
     @FXML
     void playClick(ActionEvent event) throws IOException {

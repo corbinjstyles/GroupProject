@@ -16,13 +16,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class SelectionController {
+public class SelectionController extends MainController{
 
     @FXML
     private ImageView slotsImg;
-
-    @FXML
-    private ImageView rouletteImg;
 
     @FXML
     private ImageView kenoImg;
@@ -32,9 +29,6 @@ public class SelectionController {
 
     @FXML
     private Button back;
-    
-    @FXML
-    private Text amount;
     
     @FXML
     private ImageView casinoBackground;

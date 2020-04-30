@@ -607,7 +607,7 @@ totalWinAmount.setText(multiplierMoney.toString());
 }
     @FXML
     void goToHomeScreen(ActionEvent event) throws IOException{
-    	Parent tableViewParent = FXMLLoader.load(getClass().getResource("Main.fxml"));
+    	Parent tableViewParent = FXMLLoader.load(getClass().getResource("Selection.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
         
 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
