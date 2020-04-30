@@ -3,10 +3,17 @@ package application;
 import java.util.Random;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
 import java.io.*;
 
 public class KenoController {
@@ -175,10 +182,33 @@ public class KenoController {
     @FXML
     private Label lbmatches;
     
+    @FXML
+    private TextField betMoney;
+    
+    @FXML
+    private Label moneyAmount;
+   
+    @FXML
+    private TextField win;
+    
+    @FXML
+    private TextField totalWinAmount;
+   
+    @FXML
+    private Text multiplier;
+
+    
+    static String message = "";
+    @FXML
+    static int countNumber = 0;
+    
+    @FXML
+    static Integer finalMoneyAmount = 0;
+    
     int data[]= new int[41];
     public void checkEvent(ActionEvent event){
     	int count = 0;
-    	String message = "";
+    	
     	
     	if (cb1.isSelected()){
     		count++;
@@ -382,47 +412,57 @@ public class KenoController {
     	}
     	
     	
+    	countNumber= count;
+    	
     	lblcount.setText("Items Selected: " + count);
-    	lblist.setText(message);
+    	
+   
     	if(count==1)
     		lblist1.setText("");
     	if(count==2)
-    		lblist1.setText("2\t$9\n1\t$1");
+    		lblist1.setText("2\t$6\n1\t$2");
     	else if(count==3)
-    		lblist1.setText("2\t$2\n3\t$49");
+    		lblist1.setText("3\t$12\n2\t$3");
     	else if(count==4)
-    		lblist1.setText("4\t$91\n3\t$5\n2\t$2");	
+    		lblist1.setText("4\t$20\n3\t$12\n2\t$4");	
     	else if(count==5)
-    		lblist1.setText("5\t$820\n4\t$12\n3\t$3");
+    		lblist1.setText("5\t$30\n4\t$20\n3\t$5");
     	else if(count==6)
-    		lblist1.setText("5\t$820\n4\t$12\n3\t$3");
+    		lblist1.setText("6\t$42\n5\t$30\n4\t$6");
     	else if(count==7)
-    		lblist1.setText("5\t$820\n4\t$12\n3\t$3");
+    		lblist1.setText("7\t$56\n6\t$42\n5\t$7");
     	else if(count==8)
-    		lblist1.setText("5\t$820\n4\t$12\n3\t$3");
+    		lblist1.setText("8\t$72\n7\t$56\n6\t$8");
     	else if(count==9)
-    		lblist1.setText("5\t820\n4\t12\n3\t3");
+    		lblist1.setText("9\t$90\n8\t$72\n7\t$9");
     	else if(count==10)
-    		lblist1.setText("5\t820\n4\t12\n3\t3");
-    	else
-    		lblist1.setText("You've reached the limit of numbers you can pick");
+    		lblist1.setText("10\t$100\n9\t$90\n8\t$10");
+    	else if(count==11)
+    		lblist1.setText("No Prize / More than 10 numbers selected");
 
     }
+
     
     @FXML
     void playGame(ActionEvent event) {
+    	Integer cost = Integer.parseInt(betMoney.getText());
+		 Integer money = Integer.parseInt(moneyAmount.getText());
+		 cost= money - cost;
+		 moneyAmount.setText(cost.toString());
+		 finalMoneyAmount = cost;
+		 
     	Random ram = new Random();
     	int[] ramList = new int[10];
-    	ramList[0] = ram.nextInt(40);
-    	ramList[1] = ram.nextInt(40);
-    	ramList[2] = ram.nextInt(40);
-    	ramList[3] = ram.nextInt(40);
-    	ramList[4] = ram.nextInt(40);
-    	ramList[5] = ram.nextInt(40);
-    	ramList[6] = ram.nextInt(40);
-    	ramList[7] = ram.nextInt(40);
-    	ramList[8] = ram.nextInt(40);
-    	ramList[9] = ram.nextInt(40);
+    	ramList[0] = ram.nextInt(40)+1;
+    	ramList[1] = ram.nextInt(40)+1;
+    	ramList[2] = ram.nextInt(40)+1;
+    	ramList[3] = ram.nextInt(40)+1;
+    	ramList[4] = ram.nextInt(40)+1;
+    	ramList[5] = ram.nextInt(40)+1;
+    	ramList[6] = ram.nextInt(40)+1;
+    	ramList[7] = ram.nextInt(40)+1;
+    	ramList[8] = ram.nextInt(40)+1;
+    	ramList[9] = ram.nextInt(40)+1;
     	
 for(int i=0; i<ramList.length; i++){
 	int val;
@@ -457,10 +497,123 @@ for(int i=0; i<ramList.length; i++){
 		
 	}
 }
-match -= 1;
+//match -= 1;
 lbmatches.setText(match.toString());
-    	
-    	
+Integer []winAmount = {6, 2, 12, 3, 20, 12, 4, 30, 20, 5, 42, 30, 6, 56, 42, 30, 6, 56, 42, 7, 72, 56, 8, 90, 72, 9, 100, 90, 10};
+Integer x = 0;
+switch(match){
+case 0: 
+	win.setText("0");
+	break;
+case 1:
+	if(countNumber==2)
+		win.setText(winAmount[2].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 2:
+	if(countNumber==2)
+		win.setText(winAmount[0].toString());
+	else if(countNumber==3)
+		win.setText(winAmount[3].toString());
+	else if(countNumber==4)
+		win.setText(winAmount[6].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 3:
+	if(countNumber==3)
+		win.setText(winAmount[2].toString());
+	else if(countNumber==4)
+		win.setText(winAmount[2].toString());
+	else if(countNumber==5)
+		win.setText(winAmount[9].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 4:
+	if(countNumber==4)
+		win.setText(winAmount[4].toString());
+	else if(countNumber==5)
+		win.setText(winAmount[4].toString());
+	else if(countNumber==6)
+		win.setText(winAmount[0].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 5:
+	if(countNumber==5)
+		win.setText(winAmount[7].toString());
+	else if(countNumber==6)
+		win.setText(winAmount[7].toString());
+	else if(countNumber==7)
+		win.setText(winAmount[19].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 6:
+	if(countNumber==6)
+		win.setText(winAmount[10].toString());
+	else if(countNumber==7)
+		win.setText(winAmount[10].toString());
+	else if(countNumber==8)
+		win.setText(winAmount[22].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 7:
+	if(countNumber==7)
+		win.setText(winAmount[17].toString());
+	else if(countNumber==8)
+		win.setText(winAmount[13].toString());
+	else if(countNumber==9)
+		win.setText(winAmount[25].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 8:
+	if(countNumber==8)
+		win.setText(winAmount[20].toString());
+	else if(countNumber==9)
+		win.setText(winAmount[20].toString());
+	else if(countNumber==10)
+		win.setText(winAmount[28].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 9:
+	if(countNumber==9)
+		win.setText(winAmount[23].toString());
+	else if(countNumber==10)
+		win.setText(winAmount[23].toString());
+	else
+		win.setText(x.toString());
+	break;
+case 10:
+	if(countNumber==10)
+		win.setText(winAmount[26].toString());
+	else
+		win.setText(x.toString());
+	break;
+}
+
+Integer bet = Integer.parseInt(betMoney.getText());
+Integer winnings = Integer.parseInt(win.getText());
+finalMoneyAmount = finalMoneyAmount + winnings * bet;
+Integer multiplierMoney = winnings * bet;
+multiplier.setText("* " + bet.toString() + "= " + multiplierMoney);
+moneyAmount.setText(finalMoneyAmount.toString());	
+totalWinAmount.setText(multiplierMoney.toString());
+}
+    @FXML
+    void goToHomeScreen(ActionEvent event) throws IOException{
+    	Parent tableViewParent = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+        
+Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
     }
-    
+
 }
